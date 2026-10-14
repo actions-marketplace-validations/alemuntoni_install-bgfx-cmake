@@ -82,8 +82,7 @@ runs:
         cd bgfx-build
         
         WORKSPACE_PATH="${WORKSPACE//\\//}"
-        
-        # We build statically, as python wheels include the static library.
+
         cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=${{ inputs.build-type }} -DBGFX_BUILD_EXAMPLES=OFF -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX="$WORKSPACE_PATH/bgfx-install"
         cmake --build build --config ${{ inputs.build-type }} --target install
 
